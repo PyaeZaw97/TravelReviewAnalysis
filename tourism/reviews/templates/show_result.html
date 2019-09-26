@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block page_content %}
+
+  
+{% for output in result %}
+    <ul>
+ 
+    <li>
+        <h2><b>Reviewer:</b>{{ output.reviewer }}</h2>
+        <h2><b>Place Name:</b>{{ output.place_name }}</h2>
+         <h2><b> Photo</b></h2> 
+         {% if output.image %}
+            <img src="{{ output.image.url }}"/>
+        {% endif %}
+
+       
+        <h2><b>Review:</b>{{ output.review }} </h2>
+    </li>
+    </ul>
+ 
+{% endfor %}
+        <h3>Result:{{ positive }}</h3>
+        <h3>Result:{{ negative }}</h3>
+{%endblock%}
+ 
+
+    

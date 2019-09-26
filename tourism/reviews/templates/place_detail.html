@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+
+<h1>{{ review.title }}</h1>
+<div class="row">
+    
+    <div class="col-md-8">
+        <img src="{% static review.image %}" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <h5>About the City:</h5>
+        <p>{{ review.description }}</p>
+    </div>
+    {% for output in result %}
+    <div class="col-md-4">
+        <h5>Review:</h5>
+        <p>{{ output.review }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

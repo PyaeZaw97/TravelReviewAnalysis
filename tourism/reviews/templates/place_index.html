@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<h1>WE Travelling</h1>
+
+<div class="row">
+
+{% for place in reviews %}
+
+    <div class="col-md-4">
+
+        <div class="card mb-2">
+
+            <img class="card-img-top" src="{% static place.image %}">
+
+            <div class="card-body">
+
+                <h3 class="card-title">{{ place.title }}</h3>
+
+                <p class="card-text">{{ place.description |slice:":120" }}</p>
+
+                <a href="{% url 'place_detail' place.pk %}" class="btn btn-primary">
+                    Read More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

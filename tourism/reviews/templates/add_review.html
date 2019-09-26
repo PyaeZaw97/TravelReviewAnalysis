@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_content %}
+<h1>Add Review</h1> <br>
+    <div class="form-horizontal">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'get_review' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <div class="col-md-2">
+                        <label> Reviewer Name</label>
+                        </div>
+                        <div class="col-md-6">
+                        {{ form.reviewer }} <br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                            <div class="col-md-2">
+                                <label>Visited City </label>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <select name="place_name">     
+                               <!--  {{ form.place_name }} -->
+                               
+  <option value="yangon">Yangon</option>
+  <option value="mandalay">Mandalay</option>
+  <option value="bagan">Bagan</option>
+<br>
+    </select>                                 
+</div>
+                            
+                            </div>
+                    <div class="form-group">
+                            <div class="col-md-2">
+                                <label> Photo </label>
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.image }}
+                                <!-- <img src="{{form.image.url}}" class="img-responsive"/> < --><br>
+                                </div>
+                            </div>                            
+                    <div class="form-group">
+                            <div class="col-md-2">
+                        <label> Review </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form.review}}
+                    </div>
+                </div>
+                <div class="form-group">   
+                        <div class="col-md-2"></div>
+                        <div class="col-md-6">
+                     
+                
+                        <input class="btn btn-success" type="submit" value="Submit" >
+                        <input class="btn btn-default" type="submit" value="Back" onClick="javascript:history.go(-1);">
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+
+        {% endblock %}
